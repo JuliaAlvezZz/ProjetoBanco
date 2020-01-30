@@ -2,7 +2,7 @@
 
 namespace Banco.Web.Application.Model
 {
-    class ClientesModel
+    public class ClientesModel
     {
         public ClientesModel()
         {

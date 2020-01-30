@@ -45,6 +45,8 @@
     <Compile Include="Clientes\IClientesRepository.cs" />
     <Compile Include="Contas\Dto\ContasDto.cs" />
     <Compile Include="Contas\IContasRepository.cs" />
+    <Compile Include="Operações\Dto\SaqDepDto.cs" />
+    <Compile Include="Operações\Dto\TransDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

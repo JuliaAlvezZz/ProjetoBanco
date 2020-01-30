@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banco.Web.Application.Model
 {
-    class ContasModel
+    public class ContasModel
     {
         public ContasModel()
         {

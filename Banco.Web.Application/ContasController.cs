@@ -48,6 +48,46 @@ namespace Banco.Web.Application
             return response;
         }
 
+        public HttpResponseMessage Put(SaqDepModel op)
+        {
+            string URL = "https://localhost:50970/api/contas/Put";
+            user.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = user.PostAsync(URL, op, new JsonMediaTypeFormatter
+            {
+                SerializerSettings = new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Include,
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                    ContractResolver = new DefaultContractResolver
+                    {
+                        IgnoreSerializableAttribute = true
+                    }
+                }
+            }).Result;
+
+            return response;
+        }
+
+        public HttpResponseMessage PutTransferencia(TransModel op)
+        {
+            string URL = "https://localhost:50970/api/contas/PutTransferencia";
+            user.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = user.PostAsync(URL, op, new JsonMediaTypeFormatter
+            {
+                SerializerSettings = new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Include,
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                    ContractResolver = new DefaultContractResolver
+                    {
+                        IgnoreSerializableAttribute = true
+                    }
+                }
+            }).Result;
+
+            return response;
+        }
+
         public HttpResponseMessage Delete(ContasModel conta)
         {
             string URL = "https://localhost:50970/api/contas/Delete";

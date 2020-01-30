@@ -55,6 +55,8 @@
     <Compile Include="ContasController.cs" />
     <Compile Include="Model\ClientesModel.cs" />
     <Compile Include="Model\ContasModel.cs" />
+    <Compile Include="Model\SaqDepModel.cs" />
+    <Compile Include="Model\TransModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using Banco.API.Domain.Contas;
 using Banco.API.Domain.Contas.Dto;
+using Banco.API.Domain.Operações.Dto;
 using Banco.API.Repository.Infra;
 using System;
 using System.Collections.Generic;
@@ -63,29 +64,29 @@ namespace Banco.API.Repository
             ExecuteNonQuery();
         }
 
-        public void Put(ContasDto conta, decimal valor, int tipo)
+        public void Put(SaqDepDto op)
         {
-            if (tipo == 0)
+            if (op.Tipo == 0)
             {
                 ExecuteProcedure("DepConta");
-                AddParameter("@Num_Conta", conta.Conta);
-                AddParameter("@Num_Deposito", valor);
-            }else if (tipo == 1)
+                AddParameter("@Num_Conta", op.Conta.Conta);
+                AddParameter("@Num_Deposito", op.Valor);
+            }else if (op.Tipo == 1)
             {
                 ExecuteProcedure("SaqConta");
-                AddParameter("@Num_Conta", conta.Conta);
-                AddParameter("@Num_Saque", valor);
+                AddParameter("@Num_Conta", op.Conta.Conta);
+                AddParameter("@Num_Saque", op.Valor);
             }
             
             ExecuteNonQuery();
         }
 
-        public void PutTransferencia(ContasDto conta1, ContasDto conta2, decimal valor)
+        public void PutTransferencia(TransDto op)
         {
             ExecuteProcedure("TraConta");
-            AddParameter("@Num_ContaOri", conta1.Conta);
-            AddParameter("@Num_ContaDes", conta2.Conta);
-            AddParameter("@Num_Valor", valor);
+            AddParameter("@Num_ContaOri", op.Conta1.Conta);
+            AddParameter("@Num_ContaDes", op.Conta2.Conta);
+            AddParameter("@Num_Valor", op.Valor);
             ExecuteNonQuery();
         }
 

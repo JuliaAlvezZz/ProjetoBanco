@@ -1,5 +1,6 @@
 ﻿using Banco.API.Domain.Contas;
 using Banco.API.Domain.Contas.Dto;
+using Banco.API.Domain.Operações.Dto;
 using System.Web.Http;
 
 namespace Banco.API.API.Controllers
@@ -30,16 +31,16 @@ namespace Banco.API.API.Controllers
             return Ok();
         }
 
-        public IHttpActionResult Put(ContasDto conta, decimal valor, int tipo)
+        public IHttpActionResult Put(SaqDepDto op)
         {
-            _ContasRepository.Put(conta, valor, tipo);
+            _ContasRepository.Put(op);
             return Ok();
         }
 
         [HttpGet, Route(template: "api/contas/PutTransferencia")]
-        public IHttpActionResult Put(ContasDto conta1, ContasDto conta2, decimal valor)
+        public IHttpActionResult Put(TransDto op)
         {
-            _ContasRepository.PutTransferencia(conta1, conta2, valor);
+            _ContasRepository.PutTransferencia(op);
             return Ok();
         }
 
